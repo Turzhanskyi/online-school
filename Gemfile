@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
+gem 'turbolinks'
 
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
