@@ -24,6 +24,12 @@ class Admin::TeachersController < Admin::BaseController
   end
 
   def update
+    if @teacher.update(teacher_params)
+      redirect_to admin_teachers_path, notice: 'Дані викладача оновлено'
+    else
+      flash.now[:alert] = 'Не вдалося оновити дані викладача'
+      render 'edit'
+    end
   end
 
   def destroy
