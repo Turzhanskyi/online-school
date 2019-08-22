@@ -2,7 +2,7 @@ class Admin::TeachersController < Admin::BaseController
   before_action :set_teacher, only: [:edit, :update, :destroy]
 
   def index
-    @teachers = Teacher.order(id: :desc)
+    @teachers = Teacher.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -49,7 +49,7 @@ class Admin::TeachersController < Admin::BaseController
       @main_menu[:teachers][:active] = true
     end
 
-  def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :description)
-  end
+    def teacher_params
+      params.require(:teacher).permit(:first_name, :last_name, :description)
+    end
 end
