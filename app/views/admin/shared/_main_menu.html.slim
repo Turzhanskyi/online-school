@@ -26,19 +26,8 @@ nav.navbar.navbar-default
         ul.nav.navbar-nav.navbar-right
           li.dropdown
             a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
-              | Dropdown
+              | #{current_admin.first_name} #{current_admin.last_name}
               span.caret
             ul.dropdown-menu
               li
-                a[href="#"]
-                  | Action
-              li
-                a[href="#"]
-                  | Another action
-              li
-                a[href="#"]
-                  | Something else here
-              li.divider[role="separator"]
-              li
-                a[href="#"]
-                  | Separated link
+                = link_to 'Вийти', destroy_admin_session_path, method: :delete

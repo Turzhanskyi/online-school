@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20190825224057) do
-
-ActiveRecord::Schema.define(version: 20190822170241) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.bigint "teacher_id"
-    t.bigint "discipline_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["discipline_id"], name: "index_courses_on_discipline_id"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,7 +32,17 @@ ActiveRecord::Schema.define(version: 20190822170241) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "teacher_id"
+    t.bigint "discipline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discipline_id"], name: "index_courses_on_discipline_id"
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "disciplines", force: :cascade do |t|
