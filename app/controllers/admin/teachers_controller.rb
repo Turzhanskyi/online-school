@@ -45,7 +45,7 @@ class Admin::TeachersController < Admin::BaseController
     if @teacher.destroy
       redirect_to admin_teachers_path, notice: 'Викладача успішно видалено'
     else
-      redirect_to admin_teachers_path, alert: 'Не вдалось видалити Викладача'
+      redirect_to admin_teachers_path, alert: 'Не вдалось видалити викладача'
     end
   end
 
