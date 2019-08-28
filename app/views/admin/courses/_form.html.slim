@@ -2,16 +2,10 @@
   = f.input :name
   = f.input :description
   = f.association :teacher,
-          as: :select,
+          collection: Teacher.all.decorate,
           label_method: :full_name,
-          value_method: :id,
-          include_blank: true
-  = f.association :discipline,
-          as: :select,
-          label_method: :name,
-          value_method: :id,
-          include_blank: true
-
+          value_method: :id
+  = f.association :discipline
 
   .row
     .col-md-11.col-md-offset-3.button_box

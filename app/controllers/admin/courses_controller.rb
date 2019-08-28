@@ -43,7 +43,7 @@ class Admin::CoursesController < Admin::BaseController
 
   def destroy
     if @course.destroy
-      redirect_to admin_courses_path, notice: 'курс успішно видалено'
+      redirect_to admin_courses_path, notice: 'Курс успішно видалено'
     else
       redirect_to admin_courses_path, alert: 'Не вдалось видалити курс'
     end
