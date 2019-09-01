@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 
 gem 'bootstrap-sass'
@@ -48,6 +49,8 @@ gem 'state_machines-activerecord'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'rspec-rails'

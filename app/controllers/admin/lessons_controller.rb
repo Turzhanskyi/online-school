@@ -1,9 +1,11 @@
 class Admin::LessonsController < Admin::BaseController
-  before_action :set_course
+  skip_before_action :set_active_main_item, only: :sort
+
+  before_action :set_course, except: :sort
   before_action :set_lesson, only: [:edit, :update, :destroy]
 
   def index
-    @lessons = @course.lessons.order(id: :asc).page(params[:page])
+    @lessons = @course.lessons.order(:position).page(params[:page])
   end
 
   def new
@@ -46,6 +48,12 @@ class Admin::LessonsController < Admin::BaseController
     else
       redirect_to [:admin, @course, :lessons], alert: 'Не вдалось видалити лекцію'
     end
+  end
+
+  def sort
+    Lesson.reorder(params[:lesson])
+
+    head :no_content
   end
 
   private
