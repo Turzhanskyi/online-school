@@ -1,11 +1,8 @@
 class Admin::LessonsController < Admin::BaseController
-  skip_before_action :set_active_main_item, only: :sort
-
   before_action :set_course, except: :sort
   before_action :set_lesson, only: [:edit, :update, :destroy]
 
   def index
-    @lessons = @course.lessons.order(:position).page(params[:page])
   end
 
   def new
