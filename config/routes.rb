@@ -13,8 +13,10 @@ Rails.application.routes.draw do
       resources :lessons, except: :show
     end
 
-    resources :lessons, only: [] do
-      post :sort, on: :collection
+    namespace :api do
+      namespace :lessons do
+        resource :mass_update, only: :create
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -23,7 +23,7 @@ class Admin::LessonsController < Admin::BaseController
       add_breadcrumb 'Нова лекція', [:new, :admin, @course, :lesson]
 
       flash.now[:alert] = 'Не вдалося створити лекцію'
-      render 'new'
+      render :new
     end
   end
 
@@ -38,7 +38,7 @@ class Admin::LessonsController < Admin::BaseController
       add_breadcrumb "Редагувати #{@lesson.name}", [:edit, :admin, @course, @lesson]
 
       flash.now[:alert] = 'Не вдалося оновити дані лекції'
-      render 'edit'
+      render :edit
     end
   end
 
@@ -48,12 +48,6 @@ class Admin::LessonsController < Admin::BaseController
     else
       redirect_to [:admin, @course, :lessons], alert: 'Не вдалось видалити лекцію'
     end
-  end
-
-  def sort
-    Lesson.reorder(params[:lesson])
-
-    head :no_content
   end
 
   private
