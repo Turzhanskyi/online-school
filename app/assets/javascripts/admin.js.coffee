@@ -3,4 +3,5 @@
 #= require jquery_ujs
 #= requre rails-ujs
 #= require bootstrap-sprockets
+#= require cocoon
 #= require_tree './admin'
