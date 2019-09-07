@@ -2,9 +2,8 @@
   = f.input :name
   = f.input :description
   = f.association :teacher,
-          collection: Teacher.all.decorate,
-          label_method: :full_name,
-          value_method: :id
+          collection: Teacher.all.order(id: :desc).decorate,
+          label_method: :full_name
   = f.association :disciplines
 
   .panel.panel-default

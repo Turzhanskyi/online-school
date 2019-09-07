@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190906083723) do
+ActiveRecord::Schema.define(version: 20190907090607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,18 @@ ActiveRecord::Schema.define(version: 20190906083723) do
     t.string "name"
     t.text "description"
     t.bigint "teacher_id"
-    t.bigint "discipline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["discipline_id"], name: "index_courses_on_discipline_id"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
+
+  create_table "discipline_courses", force: :cascade do |t|
+    t.bigint "discipline_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_discipline_courses_on_course_id"
+    t.index ["discipline_id"], name: "index_discipline_courses_on_discipline_id"
   end
 
   create_table "disciplines", force: :cascade do |t|
@@ -54,11 +61,13 @@ ActiveRecord::Schema.define(version: 20190906083723) do
   create_table "lessons", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "position"
     t.bigint "course_id"
+    t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "position"
     t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["section_id"], name: "index_lessons_on_section_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -79,8 +88,10 @@ ActiveRecord::Schema.define(version: 20190906083723) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "courses", "disciplines"
   add_foreign_key "courses", "teachers"
+  add_foreign_key "discipline_courses", "courses"
+  add_foreign_key "discipline_courses", "disciplines"
   add_foreign_key "lessons", "courses"
+  add_foreign_key "lessons", "sections"
   add_foreign_key "sections", "courses"
 end

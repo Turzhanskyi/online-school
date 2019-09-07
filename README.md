@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ruby -v
 
-Things you may want to cover:
+    ruby 2.3.5p376 (2017-09-14 revision 59905) [x86_64-linux]
 
-* Ruby version
+rails -v
 
-* System dependencies
+    Rails 5.1.7
 
-* Configuration
+bundle install
 
-* Database creation
+rails db:create
 
-* Database initialization
+rails db:migrate
 
-* How to run the test suite
+rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+admin: 
+   email: 'john@dow.com'
+   password: '123123'

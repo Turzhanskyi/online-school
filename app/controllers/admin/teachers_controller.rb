@@ -34,7 +34,7 @@ class Admin::TeachersController < Admin::BaseController
     if @teacher.update(teacher_params)
       redirect_to admin_teachers_path, notice: 'Дані викладача оновлено'
     else
-      add_breadcrumb "Редагувати #{@teacher.full_name}", [:edit, :admin, @teacher]
+      add_breadcrumb "Редагувати #{@teacher.decorate.full_name}", [:edit, :admin, @teacher]
 
       flash.now[:alert] = 'Не вдалося оновити дані викладача'
       render 'edit'

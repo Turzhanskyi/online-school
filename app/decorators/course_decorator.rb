@@ -4,5 +4,4 @@ class CourseDecorator < ApplicationDecorator
   def disciplines_names
     disciplines.map(&:name).join(', ')
   end
-
 end
