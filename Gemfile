@@ -34,6 +34,8 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'cocoon'
 
+gem 'tinymce-rails'
+
 gem 'best_in_place'
 
 gem 'breadcrumbs_on_rails'
