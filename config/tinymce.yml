@@ -1,9 +1,11 @@
 toolbar:
   - styleselect | bold italic | undo redo
-  - image | link | preview
+  - image | link | preview | print
 menubar:
   - view
+  - file
 plugins:
   - image
   - link
   - preview
+  - print
