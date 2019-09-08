@@ -1,11 +1,14 @@
 toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link | preview | print
+  - styleselect | bold italic | undo redo | searchreplace | preview | print
+  - uploadimage | image | link | forecolor | backcolor | numlist bullist
 menubar:
   - view
   - file
 plugins:
+  - uploadimage
   - image
   - link
   - preview
   - print
+  - textcolor colorpicker
+  - advlist

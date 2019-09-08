@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'cocoon'
 
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', '~> 4.0.17.beta.3'
 
 gem 'best_in_place'
 
