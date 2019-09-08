@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'main#index'
+
   scope :admin do
     devise_for :admins, controllers: { sessions: 'admin/admins/sessions' }
   end

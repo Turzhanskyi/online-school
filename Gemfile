@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
+gem 'jqtools-rails'
 
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
