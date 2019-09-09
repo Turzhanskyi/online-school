@@ -13,11 +13,11 @@ class Admin::Api::TinymceImagesController < Admin::Api::BaseController
   end
 
   private
-    def tinymce_image_params
-      params.permit(:file)
-    end
+  def tinymce_image_params
+    params.permit(:file)
+  end
 
-    def owner
-      @owner ||= params[:owner].capitalize.constantize.find(params["#{params[:owner]}_id".to_sym])
-    end
+  def owner
+    @owner ||= params[:owner].capitalize.constantize.find(params["#{params[:owner]}_id".to_sym])
+  end
 end

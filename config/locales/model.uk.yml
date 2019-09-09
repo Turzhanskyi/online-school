@@ -1,0 +1,8 @@
+uk:
+  activerecord:
+    errors:
+      messages:
+        required: 'не може бути пустим'
+        blank: 'не може бути пустим'
+        record_invalid: 'запис не дійсний'
+
