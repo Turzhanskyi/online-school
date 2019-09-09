@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'main#index'
 
+  get 'contact', to: 'static_pages#contact'
+  get 'about_us', to: 'static_pages#about_us'
+
   scope :admin do
     devise_for :admins, controllers: { sessions: 'admin/admins/sessions' }
   end
