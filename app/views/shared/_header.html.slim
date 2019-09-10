@@ -10,10 +10,12 @@
         li
           = link_to 'Курси', 'admin/courses'
         li
-          = link_to 'Викладачі', 'admin/teachers'
-        li
           = link_to 'Про нас', 'about_us'
         li
-          = link_to 'Blog', '#'
-        li
           = link_to 'Контакти', 'contact'
+        li
+          = link_to 'Реєстрація', new_user_registration_path
+        li
+          = link_to 'Вхід', new_user_session_path
+        li
+          = link_to 'Вийти', destroy_user_session_path, method: :delete

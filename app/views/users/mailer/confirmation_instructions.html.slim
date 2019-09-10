@@ -1,0 +1,6 @@
+p
+  | Привіт #{@email}!
+p
+  | Для підтведження вашого #{@email} перейдій по даному посиланню:
+p
+  = link_to 'Підтвердити', confirmation_url(@resource, confirmation_token: @token)

@@ -4,6 +4,14 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
   get 'about_us', to: 'static_pages#about_us'
 
+  devise_for :users, path_names: { sign_in: 'login',
+                                            sign_out: 'logout',
+                                            password: 'secret',
+                                            sign_up: 'registration' },
+                             controllers: {
+                                            registrations: 'users/registrations'
+                                          }
+
   scope :admin do
     devise_for :admins, controllers: { sessions: 'admin/admins/sessions' }
   end
