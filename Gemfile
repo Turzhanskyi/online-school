@@ -48,6 +48,7 @@ gem 'draper'
 # gem 'ransack'
 
 gem 'devise'
+gem 'authority'
 
 gem 'state_machines-activerecord'
 

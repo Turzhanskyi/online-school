@@ -47,6 +47,8 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (8.0.0)
+    authority (3.3.0)
+      activesupport (>= 3.0.0)
     autoprefixer-rails (9.6.1.1)
       execjs
     bcrypt (3.1.13)
@@ -308,6 +310,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  authority
   best_in_place
   better_errors
   binding_of_caller

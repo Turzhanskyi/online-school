@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190909201141) do
+ActiveRecord::Schema.define(version: 20190911112233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,26 @@ ActiveRecord::Schema.define(version: 20190909201141) do
     t.index ["owner_type", "owner_id"], name: "index_tinymce_images_on_owner_type_and_owner_id"
   end
 
+  create_table "user_courses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_user_courses_on_course_id"
+    t.index ["user_id"], name: "index_user_courses_on_user_id"
+  end
+
+  create_table "user_lessons", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.bigint "user_course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_user_lessons_on_lesson_id"
+    t.index ["user_course_id"], name: "index_user_lessons_on_user_course_id"
+    t.index ["user_id"], name: "index_user_lessons_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -125,4 +145,9 @@ ActiveRecord::Schema.define(version: 20190909201141) do
   add_foreign_key "lessons", "courses"
   add_foreign_key "lessons", "sections"
   add_foreign_key "sections", "courses"
+  add_foreign_key "user_courses", "courses"
+  add_foreign_key "user_courses", "users"
+  add_foreign_key "user_lessons", "lessons"
+  add_foreign_key "user_lessons", "user_courses"
+  add_foreign_key "user_lessons", "users"
 end
